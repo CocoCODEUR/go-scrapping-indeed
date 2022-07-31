@@ -12,7 +12,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func getJobsData(w *http.ResponseWriter, r *http.Request) {
+func getJobsData(w http.ResponseWriter, r *http.Request) {
 
 	data := scrapping.Scrapper()
 	w.Header().Set("Content-type", "applications/json")
@@ -20,7 +20,7 @@ func getJobsData(w *http.ResponseWriter, r *http.Request) {
 
 }
 
-func Routes() {
+func CreateRoutes() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/jobData", getJobsData).Methods("GET")

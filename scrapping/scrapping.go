@@ -16,7 +16,7 @@ type Job struct {
 	// Society []string
 }
 
-func cleanSalary(salary string) int {
+func CleanSalary(salary string) int {
 	regex, err := regexp.Compile(`[^\dàÀ]+`)
 	if err != nil {
 		log.Fatal(err)
