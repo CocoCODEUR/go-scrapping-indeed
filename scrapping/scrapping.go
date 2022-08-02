@@ -13,7 +13,6 @@ import (
 type Job struct {
 	Salary []int
 	Titles []string
-	// Society []string
 }
 
 func CleanSalary(salary string) int {
@@ -66,7 +65,6 @@ func Scrapper() Job {
 		fmt.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
 	// titre de l'annonce
-
 	c.OnHTML("h2.jobTitle", func(e *colly.HTMLElement) {
 
 		Jobs.Titles = append(Jobs.Titles, e.ChildText("span"))
@@ -91,7 +89,7 @@ func Scrapper() Job {
 	})
 
 	c.OnRequest(func(request *colly.Request) {
-		// fmt.Println("Visiting site : ", request.URL.String())
+		fmt.Println("Visiting site : ", request.URL.String())
 
 	})
 	research := "next%20js"
